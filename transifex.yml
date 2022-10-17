@@ -1,0 +1,7 @@
+git:
+  filters:
+  - filter_type: file
+    translation_files_expression: 'app/webapp/i18n/i18n_<lang>.properties'
+    source_file: app/webapp/i18n/i18n.properties
+    file_format: UNICODEPROPERTIES
+    source_language: en

@@ -1,0 +1,103 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:table="sap.ui.table"
+>
+<Dialog
+    id="shipDialog"
+    title="{i18n>header.selectDestination}"
+>
+   <endButton>
+    <Button text="Cancel" press=".closeShip"></Button>
+   </endButton>
+   <content>
+    <VBox class="sapUiMediumMarginBeginEnd">
+        <HBox alignContent="SpaceBetween" width="100%" justifyContent="SpaceBetween" class="sapUiTinyMarginTopBottom">
+                
+            <items>
+                <SearchField
+                id="shipSearchField"
+                width="30em"
+                search="searchShip"
+                    
+                >
+                    
+                </SearchField>
+                
+                <Button text="Go" type="Emphasized" press="searchShip"></Button>
+            </items>
+        </HBox>
+        <table:Table class="sapUiTinyMarginTop"  id="shipTables" rows="{path : '/CustomerSalesPartenFunctions'}" selectionMode="Single" enableCellFilter="true" enableCustomFilter="true" selectionBehavior="RowOnly"  visibleRowCount="15" rowSelectionChange="selectShip">
+        <table:columns>
+    <table:Column >
+        <table:label>
+            <Label text="{i18n>header.vh.customer}"/>
+        </table:label>
+        <table:template>
+            <Text text="{businessPartner_ID}"></Text>
+        </table:template>
+       
+    </table:Column>
+    <table:Column >
+        <table:label>
+            <Label text="{i18n>header.vh.customerName}"/>
+        </table:label>
+        <table:template>
+            <Text text="{businessPartnerName}"></Text>
+        </table:template>
+       
+    </table:Column>
+    <table:Column >
+        <table:label>
+            <Label text="{i18n>header.vh.region}"/>
+        </table:label>
+        <table:template>
+            <Text text="{regionName}"></Text>
+        </table:template>
+       
+    </table:Column>
+    <table:Column >
+        <table:label>
+            <Label text="{i18n>header.vh.cityName}"/>
+        </table:label>
+        <table:template>
+            <Text text="{businessPartnerCityName}"></Text>
+        </table:template>
+       
+    </table:Column>
+    <table:Column >
+        <table:label>
+            <Label text="{i18n>header.vh.country}"/>
+        </table:label>
+        <table:template>
+            <Text text="{countryName}"></Text>
+        </table:template>
+       
+    </table:Column>
+    <table:Column >
+        <table:label>
+            <Label text="{i18n>header.vh.streetName}"/>
+        </table:label>
+        <table:template>
+            <Text text="{businessPartnerStreetName}"></Text>
+        </table:template>
+       
+    </table:Column>
+    <table:Column >
+        <table:label>
+            <Label text="{i18n>header.vh.postalCode}"/>
+        </table:label>
+        <table:template>
+            <Text text="{businessPartnerPostalCode}"></Text>
+        </table:template>
+       
+    </table:Column>
+   
+        </table:columns>
+        </table:Table>
+        
+    </VBox>
+    
+   </content>
+</Dialog>
+</c:FragmentDefinition>

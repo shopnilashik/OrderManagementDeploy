@@ -1,0 +1,194 @@
+<c:FragmentDefinition
+	xmlns:table="sap.ui.table"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+	<Dialog
+		id="productDialog"
+		title="{i18n>item.product}"
+	>
+		<endButton>
+			<Button
+				text="Cancel"
+				press=".closeProduct"
+			/>
+		</endButton>
+		<content>
+			<FlexBox
+				direction="Column"
+				class="sapUiMediumMarginBeginEnd"
+			>
+				<items>
+					<HBox
+						alignContent="SpaceBetween"
+						width="100%"
+						justifyContent="SpaceBetween"
+						class="sapUiTinyMarginTopBottom"
+					>
+						<items>
+							<SearchField
+								id="productSearch"
+								width="30em"
+								search=".searchProduct"
+							/>
+							<Button
+								text="Go"
+								type="Emphasized"
+								press="searchProduct"
+							/>
+						</items>
+					</HBox>
+					<table:Table
+						class="sapUiTinyMarginTop"
+						id="productTables"
+						rows="{
+							path: '/ProductsView'
+						}"
+						selectionMode="Single"
+						enableCellFilter="true"
+						enableCustomFilter="true"
+						selectionBehavior="RowOnly"
+						visibleRowCount="15"
+						rowSelectionChange="selectProduct"
+					>
+						<table:columns>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.productCode}"/>
+								</table:label>
+								<table:template>
+									<ObjectStatus
+										state="Information"
+										text="{ID}"
+									/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.product}"/>
+								</table:label>
+								<table:template>
+									<Text text="{productName}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.productType}"/>
+								</table:label>
+								<table:template>
+									<Text text="{productTypeName}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.productGroup}"/>
+								</table:label>
+								<table:template>
+									<Text text=""/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.name1}"/>
+								</table:label>
+								<table:template>
+									<Text text="{productHierarchyName1}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.name2}"/>
+								</table:label>
+								<table:template>
+									<Text text="{productHierarchyName2}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.name3}"/>
+								</table:label>
+								<table:template>
+									<Text text="{productHierarchyName3}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.name4}"/>
+								</table:label>
+								<table:template>
+									<Text text="{productHierarchyName4}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.attribute1}"/>
+								</table:label>
+								<table:template>
+									<Text text="{attribute1}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.attribute2}"/>
+								</table:label>
+								<table:template>
+									<Text text="{attribute2}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.attribute3}"/>
+								</table:label>
+								<table:template>
+									<Text text="{attribute3}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.attribute4}"/>
+								</table:label>
+								<table:template>
+									<Text text="{attribute4}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.attribute5}"/>
+								</table:label>
+								<table:template>
+									<Text text="{attribute5}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.unitOfMeasure}"/>
+								</table:label>
+								<table:template>
+									<Text text="{unitsOfMeasureName}"/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.Prezzo}"/>
+								</table:label>
+								<table:template>
+									<Text text=""/>
+								</table:template>
+							</table:Column>
+							<table:Column>
+								<table:label>
+									<Label text="{i18n>item.vh.sconto}"/>
+								</table:label>
+								<table:template>
+									<Text text=""/>
+								</table:template>
+							</table:Column>
+						</table:columns>
+						<table:extension>
+						</table:extension>
+					</table:Table>
+				</items>
+			</FlexBox>
+		</content>
+	</Dialog>
+</c:FragmentDefinition>

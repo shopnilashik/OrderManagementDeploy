@@ -1,0 +1,162 @@
+<mvc:View
+	controllerName="derga.ordermanagement.controller.MainView"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+>
+	<ObjectPageLayout
+		id="ObjectPageLayout"
+		showTitleInHeaderContent="true"
+		alwaysShowContentHeader="false"
+		preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true"
+		isChildPage="true"
+		upperCaseAnchorBar="false"
+		enableLazyLoading="false"
+		flexEnabled="true"
+		showHeaderContent="true"
+	>
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle
+				id="_IDGenObjectPageDynamicHeaderTitle1"
+				class="sapUiTinyMarginTop"
+			>
+				<actions>
+					<m:Image
+						src="{
+							value: 'derga/ordermanagement/images/derga_logo.svg',
+							formatter: 'sap.ui.require.toUrl'
+						}"
+						height="100%"
+					/>
+					<!-- <m:ToggleButton id="_IDGenToggleButton1" text="Total Price" press="onFooterEnable"></m:ToggleButton> -->
+				</actions>
+				<heading>
+					<m:Title
+						text="{i18n>title}"
+						titleStyle="H1"
+						level="H1"
+					/>
+				</heading>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<headerContent>
+			<mvc:XMLView
+				id="_IDGenvXMLView1"
+				viewName="derga.ordermanagement.view.HeaderContent"
+			/>
+			<!-- <m:Title id="_IDGenTitle1" text = "Derga Order Management" titleStyle="H2"></m:Title> -->
+		</headerContent>
+		<sections>
+			<ObjectPageSection
+				id="_IDGenObjectPageSection1"
+				title="Header"
+			>
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection1">
+						<blocks>
+							<mvc:XMLView
+								id="_IDGenXMLView1"
+								viewName="derga.ordermanagement.view.Header"
+							/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection
+				id="_IDGenObjectPageSection2"
+				title="Items"
+			>
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection2">
+						<blocks>
+							<mvc:XMLView
+								id="_IDGenXMLView2"
+								viewName="derga.ordermanagement.view.Items"
+							/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection
+				id="_IDGenObjectPageSection3"
+				title="Promo Vistex"
+			>
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection3">
+						<blocks>
+							<mvc:XMLView
+								id="_IDGenXMLView3"
+								viewName="derga.ordermanagement.view.PromoVistex"
+							/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection
+				id="_IDGenObjectPageSection4"
+				title="Header Pricing"
+			>
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection4">
+						<blocks>
+							<mvc:XMLView
+								id="_IDGenXMLView5"
+								viewName="derga.ordermanagement.view.HeaderPricing"
+							/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection
+				id="_IDGenObjectPageSection5"
+				title="{i18n>partner.title}"
+			>
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection5">
+						<blocks>
+							<mvc:XMLView
+								id="_IDGenXMLView6"
+								viewName="derga.ordermanagement.view.Partners"
+							/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection
+				id="_IDGenObjectPageSection6"
+				title="Notes"
+			>
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection6">
+						<blocks>
+							<mvc:XMLView
+								id="_IDGenXMLView7"
+								viewName="derga.ordermanagement.view.Notes"
+							/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:OverflowToolbar
+				id="_IDGenOverflowToolbar1"
+				design="Transparent"
+			>
+				<m:ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+				<m:Button
+					id="_IDGenButton1"
+					type="Accept"
+					text="Save"
+				/>
+				<m:Button
+					id="_IDGenButton2"
+					type="Reject"
+					text="Cancel"
+				/>
+			</m:OverflowToolbar>
+		</footer>
+	</ObjectPageLayout>
+</mvc:View>

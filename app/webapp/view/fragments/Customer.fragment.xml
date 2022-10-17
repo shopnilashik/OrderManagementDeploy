@@ -1,0 +1,132 @@
+<c:FragmentDefinition xmlns:layout="sap.ui.layout" xmlns:table="sap.ui.table"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+<Dialog
+    id="customerDialog"
+    title="{i18n>header.selectCustomer}"   
+>
+  
+   
+   <endButton>
+    <Button text="Cancel" press=".closeCustomer"></Button>
+   </endButton>
+   <content>
+    <FlexBox
+        alignContent="Stretch"
+        direction="Column"
+        class="sapUiMediumMarginBeginEnd"
+        
+    >
+        <items>
+            <HBox alignContent="SpaceBetween" width="100%" justifyContent="SpaceBetween" class="sapUiTinyMarginTopBottom">
+                
+                <items>
+                    <SearchField
+                    id="customerSearch"
+                    width="30em"
+                    search=".searchCusotmer"
+                        
+                    >
+                        
+                    </SearchField>
+                    
+                    <Button text="Go" type="Emphasized" press="searchCusotmer"></Button>
+                </items>
+            </HBox>
+            <table:Table class="sapUiTinyMarginTop" id="customerTables" rows="{path : '/CustomersView'}" selectionMode="Single" enableCellFilter="true" enableCustomFilter="true" selectionBehavior="RowOnly"  visibleRowCount="15" rowSelectionChange="selectCustomer">
+            <table:columns>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.customer}"/>
+            </table:label>
+            <table:template>
+                <Text text="{businessPartner_ID}"></Text>
+            </table:template>
+           
+        </table:Column>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.customerName}"/>
+            </table:label>
+            <table:template>
+                <Text text="{name}"></Text>
+            </table:template>
+           
+        </table:Column>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.region}"/>
+            </table:label>
+            <table:template>
+                <Text text="{regionName}"></Text>
+            </table:template>
+           
+        </table:Column>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.cityName}"/>
+            </table:label>
+            <table:template>
+                <Text text="{cityName}"></Text>
+            </table:template>
+           
+        </table:Column>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.country}"/>
+            </table:label>
+            <table:template>
+                <Text text="{countryName}"></Text>
+            </table:template>
+           
+        </table:Column>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.vatNo}"/>
+            </table:label>
+            <table:template>
+                <Text text="{vatRegistration}"></Text>
+            </table:template>
+           
+        </table:Column>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.org}"/>
+            </table:label>
+            <table:template>
+                <Text text="{salesOrganizationName}"></Text>
+            </table:template>
+           
+        </table:Column>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.distributionCh}"/>
+            </table:label>
+            <table:template>
+                <Text text="{distributionChannelName}"></Text>
+            </table:template>
+           
+        </table:Column>
+        <table:Column >
+            <table:label>
+                <Label text="{i18n>header.vh.division}"/>
+            </table:label>
+            <table:template>
+                <Text text="{divisionName}"></Text>
+            </table:template>
+           
+        </table:Column>
+            </table:columns>
+            <table:extension>
+                
+              
+            </table:extension>
+            </table:Table>
+            
+        </items>
+        
+    </FlexBox>
+   </content>
+</Dialog>
+</c:FragmentDefinition>

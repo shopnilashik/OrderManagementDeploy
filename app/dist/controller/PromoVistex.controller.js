@@ -1,0 +1,1 @@
+sap.ui.define(["./BaseController"],function(e){"use strict";return e.extend("derga.ordermanagement.controller.PromoVistex",{onInit:function(){}})});

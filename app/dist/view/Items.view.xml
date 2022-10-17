@@ -1,0 +1,139 @@
+<mvc:View
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	controllerName="derga.ordermanagement.controller.Items"
+>
+	<VBox id="_IDGenVBox1">
+		<items>
+			<Table
+				mode="MultiSelect"
+				items="{items>/}"
+				id="itemList"
+			>
+				<columns>
+					<Column width="4em">
+						<Text text="Pos."/>
+					</Column>
+					<Column>
+						<Text text="Product"/>
+					</Column>
+					<Column width="5em">
+						<Text text="Qty"/>
+					</Column>
+					<Column>
+						<Text text="Udm"/>
+					</Column>
+					<Column>
+						<Text text="Conversion Udm"/>
+					</Column>
+					<Column>
+						<Text text="Price List"/>
+					</Column>
+					<Column>
+						<Text text="Cat. Position"/>
+					</Column>
+					<Column>
+						<Text text="Batch"/>
+					</Column>
+					<Column>
+						<Text text="Req Delivery Date"/>
+					</Column>
+					<Column>
+						<Text text="Delevery Date ATP"/>
+					</Column>
+					<Column>
+						<Text text="Manual Price"/>
+					</Column>
+					<Column>
+						<Text text="Curr"/>
+					</Column>
+					<Column width="5em">
+						<Text text="Desc %"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press=".onRowPressed(${items>})">
+						<cells>
+							<Text text="{items>position}"/>
+							<Input
+								id="productInput"
+								showValueHelp="true"
+								valueHelpOnly="true"
+								value="{items>productName}"
+								valueHelpRequest=".onProductDialog(${items>})"
+								placeholder="Select a product"
+							/>
+							<Input
+								id="_IDGenInput1"
+								type="Number"
+								value="{items>Qty}"
+							/>
+							<ComboBox
+								id="selectSheet"
+								width="100%"
+								items="{
+									path: '/UnitsOfMeasure',
+									parameters: {
+										$expand: {
+											texts: {
+											}
+										}
+									}
+								}"
+								selectedItemId="001"
+								value="{items>unitofmasure_ID}"
+							>
+								<items>
+									<core:Item
+										id="_IDGenItem1"
+										xmlns:core="sap.ui.core"
+										text="{name}"
+										key="{ID}"
+									/>
+								</items>
+							</ComboBox>
+							<Text text="{items>unitofmasure_ID}"/>
+							<Text text="{items>price_list}"/>
+							<ComboBox value="{items>cat_position}"/>
+							<Input
+								showValueHelp="true"
+								valueHelpOnly="true"
+								value="{items>batch}"
+								valueHelpRequest=".onBatchDialog"
+							/>
+							<DatePicker
+								change=".onDateChange"
+								id="_IDGenDatePicker1"
+								value="{items>date}"
+							/>
+							<Text id='dateText' text="{path: 'items>date',
+								formatter: '.dateFormatter'}"/>
+							<Input
+								id="_PriceFieldID"
+								type="Number"
+								value="{items>manual_price}"
+							/>
+							<ComboBox value="{items>currency}"/>
+							<Input value="{items>discount}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<HBox
+				class="sapUiTinyMarginTop"
+				width="100%"
+				justifyContent="End"
+			>
+				<items>
+					<ToolbarSpacer/>
+					<Button
+						text="Simulate"
+						type="Emphasized"
+						press="onCreateItem"
+					/>
+				</items>
+			</HBox>
+		</items>
+	</VBox>
+</mvc:View>

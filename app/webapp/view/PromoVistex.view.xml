@@ -1,0 +1,86 @@
+<mvc:View  xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m"
+xmlns:l="sap.ui.layout" >
+    <HBox justifyContent="SpaceBetween" width="100%">
+        <VBox width="45%">
+            <Table id="_IDGenTable1" class="sapUiTinyMarginTop" items="{invoice>/Invoices}" width="99%">
+                <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar1">
+                        <content>
+                            <Title id="_IDGenTitle1" text="Discount"></Title>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenColumn1" >
+                        <Text id="_IDGenText1" text="Condition" ></Text>
+                    </Column>
+                    <Column id="_IDGenColumn2" >
+                        <Text id="_IDGenText2" text="Cond. Description"></Text>
+                    </Column>
+                    <Column id="_IDGenColumn3" >
+                        <Text id="_IDGenText3" text="Value"></Text>
+                    </Column>
+                    <Column id="_IDGenColumn4" >
+                        <Text id="_IDGenText4" text="Curr"></Text>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1" >
+                        <cells>
+                            <ObjectNumber id="_IDGenObjectNumber1" number="{invoice>Quantity}" emphasized="false"/>
+                                <Text id="_IDGenText5" text="{invoice>ProductName}"/>
+                                <Text id="_IDGenText6" text="{
+                                    path: 'invoice>Status',
+                                    formatter: '.formatter.statusText'
+                                }"/>
+                                <Text id="_IDGenText7" text="{invoice>ShipperName}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <layoutData>
+                    <l:SplitterLayoutData id="_IDGenSplitterLayoutData1"  resizable="false" />
+                </layoutData>
+            </Table>
+        </VBox>
+        <HBox width="45%" justifyContent="End">
+            <Table id="_IDGenTable1d" class="sapUiTinyMarginTop" items="{invoice>/Invoices}" width="99%">
+                <headerToolbar>
+                    <OverflowToolbar id="_IDGenOvderflowToolbar1" >
+                        <content>
+                            <Title id="_IDGenTidtle1" text="ADD-ON"></Title>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="_IDGenColdumn1" >
+                        <Text id="_IDGenTdext1" text="Condition" ></Text>
+                    </Column>
+                    <Column id="_IDGenColudmn2" >
+                        <Text id="_IDGenTdext2" text="Cond. Description"></Text>
+                    </Column>
+                    <Column id="_IDGenColdumn3" >
+                        <Text id="_IDGenTedxt3" text="Value"></Text>
+                    </Column>
+                    <Column id="_IDGenColudmn4" >
+                        <Text id="_IDGendText4" text="Curr"></Text>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem2" >
+                        <cells>
+                            <ObjectNumber id="_IDGenObjectNumber2" number="{invoice>Quantity}" emphasized="false"/>
+                                <Text id="_IDGenTdeext5" text="{invoice>ProductName}"/>
+                                <Text id="_IDGenTdext6" text="{
+                                    path: 'invoice>Status',
+                                    formatter: '.formatter.statusText'
+                                }"/>
+                                <Text id="_IDGenTdext7" text="{invoice>ShipperName}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </HBox>
+
+        </HBox>
+</mvc:View>

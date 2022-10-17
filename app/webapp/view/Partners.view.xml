@@ -1,0 +1,200 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:table="sap.ui.table" controllerName="derga.ordermanagement.controller.Partners">
+    <HBox width="100%">
+        <VBox width="90%" class="sapUiMediumMarginEnd">
+            <table:Table id="partnerTable" class="sapUiTinyMargin" width="100%" selectionMode="Multi">
+                <table:extension>
+                    <OverflowToolbar style="Clear">
+						<Title id="title" text="{i18n>partner.title}"/>
+                            <ToolbarSpacer/>
+                            <SearchField
+                                placeholder="Filter"
+                                search=".partnerSearch"
+                                width="15rem"/>
+                            <ToolbarSeparator/>
+                            <Button
+                                icon="sap-icon://print"
+                                type="Transparent"
+                                tooltip="Enable / Disable Cell Filter Functionality"
+                                />
+                            <ToolbarSeparator/>
+                            <Button
+                                icon="sap-icon://full-screen"
+                                tooltip="Clear all filters"
+                                type="Transparent"
+                               />
+					</OverflowToolbar>
+                </table:extension>
+                <table:columns>
+                    <table:Column>
+						
+                        <Text id="_IDGenText1" text="Partner Role" />
+                        <table:template>
+                            <ObjectIdentifier title="{partnerFunction_ID}"></ObjectIdentifier>
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Text id="_IDGenTeffxt1" text="Role Desc" />
+                        <table:template>
+                            <Text id="_IDGengTeffxt1" text="{partnerFunctionName}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Text id="_IDGenTffext1" text="Partner Name" />
+                        <table:template>
+                            <Text id="_IDGengTefffxt1" text="{=${businessPartnerName}.length===0?'':${businessPartnerName}+'('+${businessPartner_ID}+')'}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column hAlign="End">
+                        <Text id="_IDGenTeffxt3" text="Change" />
+                        <table:template>
+                            <Button icon="sap-icon://value-help" type="Transparent" />
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </VBox>
+        <FlexBox id="RightContentFlexBox"  class="" direction="Column" width="90%">
+            <ObjectIdentifier
+            title="{i18n>header.destination}"
+            class="sapUiTinyMarginBottom sapUiTinyMarginTop"
+              >
+              </ObjectIdentifier>
+			<FlexBox id="RightContantRow_1" class=" sapUiTinyMarginBottom" justifyContent="SpaceBetween" width="100%">                
+				<FlexBox id="consigneegoodsFlexBox" class="sapUiSmallMarginEnd" direction="Column" width="50%">
+					<items>
+						<Label id="consigneegoodsLabel" text="{i18n>header.shipTo}"></Label>
+						<Input
+								id="selectSheet8"
+								showValueHelp="true"
+								valueHelpOnly="true"
+                                valueHelpRequest=".onShipOpen"
+								width="100%"
+								placeholder="Select Shipping Code"
+								class=""/>
+					</items>
+				</FlexBox>
+				<FlexBox id="nameConsigneeGoodsFlexBox" class="" direction="Column" width="50%">
+					<items>
+						<Label id="nameConsigneeGoodsLebel" text="{i18n>header.recipientName}"></Label>
+						<Input id="cusName" placeholder="NAME1_WE+NAME2_WE" liveChange=".shipReciepentNameAfterSelect" valueLiveUpdate="true"></Input>
+					</items>
+				</FlexBox>		
+			</FlexBox>
+			<FlexBox id="RightContantRow_2" class=" sapUiTinyMarginBottom"  direction="Column"  width="100%">
+				<FlexBox id="viapiazzaFlexBox" class="" direction="Column"  width="100%">
+					<items>
+						<Label id="viapiazzaLebel" text="{i18n>item.page.viapiazza}"></Label>
+						<Input id="addressInput" placeholder="NAME1_WE+NAME2_WE" valueLiveUpdate="true" liveChange=".shipAdressAfterchange"></Input>
+					</items>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox id="RightContantRow_3"  class=" sapUiTinyMarginBottom"  justifyContent="SpaceBetween"  width="100%">	
+					<FlexBox id="capFlexBox" class="sapUiSmallMarginEnd" direction="Column"  width="50%">
+						<items>
+							<Label id="capLebel" text="{i18n>item.page.cap}"></Label>
+							<Input id="postalCodeText" placeholder="PSTLZ_WE" liveChange=".shipPostalCodeUpdate" valueLiveUpdate="true"></Input>
+						</items>
+					</FlexBox>
+					<FlexBox id="cityFlexBox" class="" direction="Column"  width="50%">
+						<items>
+							<Label id="cityLebel" text="{i18n>item.page.city}"></Label>
+							<Input id="cityText" placeholder="ORT01_WE" liveChange=".shipCityUpdate" valueLiveUpdate="true"></Input>
+						</items>
+					</FlexBox>
+			</FlexBox>
+			<FlexBox id="RightContantRow_4"  class=""  justifyContent="SpaceBetween"  width="100%">	
+				<FlexBox id="provinceFlexBox" class="sapUiSmallMarginEnd" direction="Column"  width="50%">
+					<items>
+						<Label id="provinceLebel" text="{i18n>item.page.province}"></Label>
+						<ComboBox items="{path:'/Regions', length : '1000000'}" width="100%" id="province" showSecondaryValues="true" change="destionationRegionAfterSelect">
+                            <items>
+                                <core:ListItem enabled="true" key="{ID}" text="{name}" additionalText="{ID}" textDirection="Inherit" />
+                            </items>
+                        </ComboBox>
+					</items>
+				</FlexBox>
+				<FlexBox id="countryFlexBox" class="" direction="Column"  width="50%">
+					<items>
+						<Label id="countryLebel" text="{i18n>item.page.country}"></Label>
+						<ComboBox items="{path:'/Countries', length : '100000'}" width="100%" id="country" selectionChange="selectCountryOne" showSecondaryValues="true" change="destionationCountryAfterSelect">
+                            <items>
+                                <core:ListItem enabled="true" key="{ID}" text="{name}" textDirection="Inherit" additionalText="{ID}" />
+                            </items>
+                        </ComboBox>
+					</items>
+				</FlexBox>
+			</FlexBox>
+			<ObjectIdentifier
+                      title="{i18n>header.shipment}"
+                      class="sapUiMediumMarginTop sapUiTinyMarginBottom"
+                        >
+                
+                        </ObjectIdentifier>
+			<FlexBox id="RightContantRow_5"  class=""  justifyContent="SpaceBetween"  width="100%">	
+				<FlexBox id="forwarderFlexBox" class="sapUiSmallMarginEnd" direction="Column"  width="50%">
+					<items>
+						<Label id="Lebelforwarder" text="{i18n>header.carrier}"></Label>
+						<Input
+						id="selectSheet12"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						width="100%"
+						valueHelpRequest=".onCarrierOpen"
+						class="sapUiSmallMarginBottom" placeholder="Select Shipping Code"/>
+					</items>
+				</FlexBox>
+				<FlexBox id="recipientNameFlexBox" class="" direction="Column"  width="50%">
+					<items>
+						<Label id="recipientNameLebel" text="{i18n>item.page.recipientName}"></Label>
+						<Input id="pname" placeholder="NAME1_WE+NAME2_WE" valueLiveUpdate="true" liveChange=".carrierReciepentNameAfterSelect"></Input>
+					</items>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox id="RightContantRow_6" class=" sapUiTinyMarginBottom" direction="Column" width="100%">
+				<FlexBox id="viapiazzaFlexBox2" class="" direction="Column"  width="100%">
+					<items>
+						<Label id="viapiazzaLebel2" text="{i18n>item.page.viapiazza}"></Label>
+						<Input id="address2" placeholder="NAME1_WE+NAME2_WE" valueLiveUpdate="true" liveChange=".carrierAdressAfterchange"></Input>
+					</items>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox id="RightContantRow_7"  class=" sapUiTinyMarginBottom" justifyContent="SpaceBetween" width="100%">	
+				<FlexBox id="capFlexBox2" class="sapUiSmallMarginEnd" direction="Column" width="50%">
+					<items>
+						<Label id="capLebel2" text="{i18n>item.page.cap}"></Label>
+						<Input id="postalCodeText2" placeholder="PSTLZ_WE" valueLiveUpdate="true" liveChange=".carrierPostalCodeUpdate"></Input>
+					</items>
+				</FlexBox>
+				<FlexBox id="cityFlexBox2" class="" direction="Column"  width="50%">
+					<items>
+						<Label id="cityLebel2" text="{i18n>item.page.city}"></Label>
+						<Input id="cityText2" placeholder="ORT01_WE" valueLiveUpdate="true" liveChange=".carrierCityUpdate"></Input>
+					</items>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox id="RightContantRow_8" class=" sapUiTinyMarginBottom" justifyContent="SpaceBetween" width="100%">	
+				<FlexBox id="provinceFlexBox2" class="sapUiSmallMarginEnd" direction="Column" width="50%">
+					<items>
+						<Label id="provinceLebel2" text="{i18n>item.page.province}"></Label>
+						<ComboBox items="{path:'/Regions', length : '1000000'}" width="100%" id="regionid2" showSecondaryValues="true" change="shipmentRegionAfterSelect">
+							<items>
+								<core:ListItem enabled="true" key="{ID}" text="{name}" additionalText="{ID}" textDirection="Inherit" />
+							</items>
+						</ComboBox>
+					</items>
+				</FlexBox>
+				<FlexBox id="countryFlexBox2" class="" direction="Column" width="50%">
+					<items>
+						<Label id="countryLebel2" text="{i18n>item.page.country}"></Label>
+						<ComboBox items="{path:'/Countries', length : '1000000'}" width="100%" id="country2" selectionChange="selectCountryTwo" showSecondaryValues="true" change="shipmentCountryAfterSelect">
+							<items>
+								<core:ListItem enabled="true" key="{ID}" text="{name}" textDirection="Inherit" additionalText="{ID}" />
+							</items>
+						</ComboBox>
+					</items>
+				</FlexBox>
+			</FlexBox>
+		</FlexBox>	
+	
+    </HBox>
+</mvc:View>

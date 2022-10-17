@@ -1,0 +1,248 @@
+<mvc:View
+	controllerName="derga.ordermanagement.controller.Position"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table"
+	xmlns="sap.m"
+	xmlns:m="sap.m"
+>
+	<FlexBox
+		id="PositionMainFlexBox"
+		width="100%"
+		class="sapUiMediumMarginTop">
+		<FlexBox
+			id="MainLeftFlexBoxWraper"
+			direction="Column"
+			width="80%"
+			class="">
+			<FlexBox
+				id="MainLeftFlexBoxRow_01"
+				class="sapUiTinyMarginBegin "
+				width="100%">
+				<FlexBox
+					id="productFlexBox"
+					direction="Column"
+					width="100%"
+					class="sapUiMediumMarginEnd">
+					<Label
+						id="productLabel"
+						text="{i18n>item.page.product}"/>
+					<Input
+						id="productInput"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						class="sapUiSmallMarginBottom"
+						valueHelpRequest=".onProductDialog"
+                        value="{productDetails>/productName}"/>
+				</FlexBox>
+				<FlexBox
+					id="categorydiposFlexBox"
+					direction="Column"
+					width="100%"
+					class="sapUiMediumMarginEnd">
+					<Label
+						id="categoryDiPosLabel"
+						text="{i18n>item.page.categoryDiPos}"/>
+					<ComboBox
+						id="selectcategorydipos"
+						width="100%"
+						items="{oOrderData>/Product}">
+						<items>
+							<core:Item
+								id="categorydipositems"
+								text="{oOrderData>name}"/>
+						</items>
+					</ComboBox>
+				</FlexBox>
+				<FlexBox
+					id="dateconsrequestFlexBox"
+					direction="Column"
+					width="100%"
+					class="sapUiMediumMarginEnd">
+					<Label
+						id="dateConsRequestLabel"
+						text="{i18n>item.page.dateConsRequest}"/>
+					<DatePicker id="dateconsrequest" value="{productDetails>/date}" width="100%"/>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox
+				id="MainLeftFlexBoxRow_02"
+				width="100%"
+				class="sapUiTinyMarginBegin">
+				<FlexBox
+					id="matchFlexBox"
+					direction="Column"
+					width="100%"
+					class="sapUiMediumMarginEnd">
+					<Label
+						id="matchLabel"
+						text="{i18n>item.page.match}"/>
+					<Input
+						id="matchInput"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						class="sapUiSmallMarginBottom"/>
+				</FlexBox>
+				<FlexBox
+					id="quantityFlexBox"
+					direction="Column"
+					width="100%"
+					class="sapUiMediumMarginEnd">
+					<Label
+						id="quantityLabel"
+						text="{i18n>item.page.quantity}"/>
+					<Input id="Inputquantity" value='{productDetails>/Qty}'/>
+				</FlexBox>
+				<FlexBox
+					id="UoMFlexBox"
+					direction="Column"
+					width="100%"
+					class="sapUiMediumMarginEnd">
+					<Label
+						id="LabelUoM"
+						text="{i18n>item.page.udm}"/>
+					<ComboBox
+						id="selectUoM"
+						width="100%"
+						items="{
+							path: '/UnitsOfMeasure',
+							parameters: {
+								$expand: {
+									texts: {
+									}
+								}
+							}
+						}"
+						value="{productDetails>/unitofmasure_ID}">
+						<items>
+							<core:Item
+								id="UoMitems"
+								text="{name}"
+								key="{ID}"/>
+						</items>
+					</ComboBox>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox
+				id="MainLeftFlexBoxRow_03"
+				width="100%"
+				class="sapUiTinyMargin"
+				justifyContent="SpaceBetween">
+				<FlexBox
+					id="deliverydatesFlexBox"
+					direction="Column"
+					width="100%"
+					class="">
+					<Label
+						id="deliveryDatesLabel"
+						text="{i18n>item.page.deliveryDates}"/>
+					<Text
+						text="Dec 22, 2019"
+						id="deliverydatesText"/>
+				</FlexBox>
+				<FlexBox
+					id="warehouseDivisionFlexBox"
+					direction="Column"
+					width="100%"
+					class="">
+					<Label
+						id="warehouseDivisionLabel"
+						text="{i18n>item.page.warehouseDivision}"/>
+					<Text
+						text="Description 123"
+						id="warehouseDivisionText"/>
+				</FlexBox>
+				<FlexBox
+					id="conversionFlexBox"
+					direction="Column"
+					width="100%"
+					class="">
+					<Label
+						id="conversionLabel"
+						text="{i18n>item.page.conversion}"/>
+					<Text
+						text="22 packages"
+						id="conversionText"/>
+				</FlexBox>
+			</FlexBox>
+			<FlexBox
+				id="MainLeftFlexBoxRow_04"
+				width="67%"
+				class="sapUiTinyMargin">
+				<FlexBox
+					id="LeftFlexBoxRowTable1"
+					width="100%"
+					class="sapUiMediumMarginEnd">
+					<t:Table
+						rows="{oOrderData>/Product}"
+						visibleRowCount="3"
+						selectionMode="None">
+						<t:columns>
+							<t:Column>
+								<Label text="{i18n>item.page.productFeature}"/>
+								<t:template>
+									<Text text="{oOrderData>name}"/>
+								</t:template>
+							</t:Column>
+							<t:Column hAlign="End">
+								<Label text="{i18n>item.page.value}"/>
+								<t:template>
+									<Text
+										text="{oOrderData>value}"
+										wrapping="false"
+									/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+				</FlexBox>
+				<FlexBox
+					id="LeftFlexBoxRowTable2"
+					width="100%"
+					class="sapUiMediumMarginEnd">
+					<t:Table
+						rows="{oOrderData>/Product2}"
+						visibleRowCount="3"
+						selectionMode="None">
+						<t:columns>
+							<t:Column>
+								<Label text="{i18n>item.page.featureMatch}"/>
+								<t:template>
+									<Text
+										text="{oOrderData>name}"
+										wrapping="false"/>
+								</t:template>
+							</t:Column>
+							<t:Column hAlign="End">
+								<Label text="{i18n>item.page.value}"/>
+								<t:template>
+									<Text
+										text="{oOrderData>value}"
+										wrapping="false"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+				</FlexBox>
+			</FlexBox>
+		</FlexBox>
+		<FlexBox
+			id="MainRightFlexBox"
+			direction="Column"
+			width="20%"
+			class="sapUiTinyMargin">
+			<m:Image
+				src="{
+					value: 'derga/ordermanagement/images/RobotArm.png',
+					formatter: 'sap.ui.require.toUrl'
+				}"
+				height="100%"/>
+			<Text
+				text="This is a product image"
+				class="sapUiSmallMarginTop"/>
+			<Text
+				text="This is a place for description"
+				class="sapUiSmallMarginTop"/>
+		</FlexBox>
+	</FlexBox>
+</mvc:View>

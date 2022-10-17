@@ -1,0 +1,180 @@
+<mvc:View controllerName="derga.ordermanagement.controller.Header" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" displayBlock="true" height="100%" busyIndicatorDelay="0" width="100%">
+    <VBox class="sapUiMediumMarginBottom">
+        <items>
+            <VBox width="100%">
+                <ObjectIdentifier title="{i18n>header.order}" class="sapUiMediumMarginTop " />
+                <HBox width="100%">
+                    <items>
+                        <FlexBox id="_IDGenVBox2" class="sapUiTinyMarginTop sapUiTinyMarginEnd" direction="Column" width="25%">
+                            <items>
+                                <Label id="_IDGenLabel1" text="{i18n>header.orderType}" />
+                                <ComboBox id="selectSheet" width="100%" items="{path:'/OrderTypes',parameters:{$expand:{'texts':{}}}}">
+                                    <items>
+                                        <core:Item id="_IDGenItem1" xmlns:core="sap.ui.core" text="{name}" />
+                                    </items>
+                                </ComboBox>
+                            </items>
+                        </FlexBox>
+                        <FlexBox id="_IDGenVBox3" class="sapUiTinyMargin" direction="Column" width="25%">
+                            <items>
+                                <Label id="_IDGenLabel2" text="{i18n>header.customerCode}" />
+                                <Input id="customerInput" showValueHelp="true" valueHelpOnly="true" value="" valueHelpRequest=".onCustomerDialog" class="sapUiSmallMarginBottom" width="100%" />
+                            </items>
+                        </FlexBox>
+                        <FlexBox id="_IDGenVBox4" class="sapUiTinyMargin" direction="Column" width="25%">
+                            <items>
+                                <Label id="_IDGenLabel3" text="{i18n>header.deleveryData}" />
+                                <DatePicker id="_IDGenDatePicker1" width="100%" />
+                            </items>
+                        </FlexBox>
+                        <FlexBox id="_IDGenVBox5" class="sapUiTinyMarginTop sapUiTinyMarginBegin" direction="Column" width="25%">
+                            <items>
+                                <Label id="_IDGenLabel4" text="{i18n>header.VKORG}" />
+                                <Input id="selectSheet3" showValueHelp="true" valueHelpOnly="true" class="sapUiSmallMarginBottom" width="100%" enabled="false" />
+                            </items>
+                        </FlexBox>
+                    </items>
+                </HBox>
+                <HBox width="100%">
+                    <items>
+                        <FlexBox id="_IDGegnVBox2" class="sapUiTinyMarginTop sapUiTinyMarginEnd" direction="Column" width="25%">
+                            <items>
+                                <Label id="_IDGenLabel5" text="{i18n>header.VTWEG}" />
+                                <Input id="selectSheet4" showValueHelp="true" valueHelpOnly="true" class="sapUiSmallMarginBottom" width="100%" enabled="false" />
+                            </items>
+                        </FlexBox>
+                        <FlexBox id="_IDGenVBgox3" class="sapUiTinyMargin" direction="Column" width="25%">
+                            <items>
+                                <Label id="_IDGenLabel6" text="{i18n>header.SPART}" />
+                                <Input id="selectSheet6" showValueHelp="true" valueHelpOnly="true" class="sapUiSmallMarginBottom" width="100%" enabled="false" />
+                            </items>
+                        </FlexBox>
+                        <FlexBox id="_IDGenVBgox4" class="sapUiTinyMargin" direction="Column" width="25%">
+                            <items>
+                                <Label id="_IDGenLabel7" text="{i18n>header.purchaseNumber}" />
+                                <Input id="_IDGenInput1" />
+                            </items>
+                        </FlexBox>
+                        <FlexBox id="_IDGenVfBox5" class="sapUiTinyMarginTop sapUiTinyMarginBegin" direction="Column" width="25%">
+                            <items>
+                                <Label id="_IDGenLabel8" text="{i18n>header.paymentCondition}" />
+                                <ComboBox items="{path:'/CustomerPaymentTerms',parameters:{$expand:{'texts':{}}}}" width="100%" id="provgince">
+                                    <items>
+                                        <core:Item enabled="true" key="{ID}" text="{name}" textDirection="Inherit" />
+                                    </items>
+                                </ComboBox>
+                            </items>
+                        </FlexBox>
+                    </items>
+                </HBox>
+            </VBox>
+            <HBox width="100%">
+                <VBox width="100%">
+                    <items>
+                        <ObjectIdentifier title="{i18n>header.destination}" class="sapUiTinyMarginTop " />
+                        <HBox>
+                            <items>
+                                <FlexBox id="_IDGenVerticalLayout2" class="sapUiTinyMarginTop sapUiTinyMarginBottom sapUiTinyMarginEnd" direction="Column" width="50%">
+                                    <Label id="_IDGenLabel9" text="{i18n>header.shipTo}" />
+                                    <Input id="selectSheet8" showValueHelp="true" valueHelpOnly="true" valueHelpRequest=".onShipOpen" class="sapUiSmallMarginBottom" width="100%" />
+                                </FlexBox>
+                                <FlexBox id="_IDGenFlexBox1" class="sapUiTinyMargin" direction="Column" alignContent="Stretch" alignItems="Stretch" width="50%">
+                                    <Label id="_IDGenLabel10" text="{i18n>header.recipientName}" />
+                                    <Input id="cusName" width="100%" liveChange=".shipReciepentNameAfterSelect" valueLiveUpdate="true"/>
+                                </FlexBox>
+                            </items>
+                        </HBox>
+                        <HBox class=" sapUiTinyMarginBottom">
+                            <items>
+                                <FlexBox id="_IDGenVerticalLayout4" class=" sapUiTinyMarginEnd" width="100%" direction="Column">
+                                    <Label id="_IDGenLabel11" text="{i18n>header.sTRAH}" />
+                                    <Input id="addressInput" width="100%" valueLiveUpdate="true" liveChange=".shipAdressAfterchange"/>
+                                </FlexBox>
+                            </items>
+                        </HBox>
+                        <FlexBox class="sapUiTinyMarginTop sapUiTinyMarginBottom" id="_IDGenHBox3" alignContent="Stretch" alignItems="Stretch" justifyContent="SpaceBetween" direction="Row">
+                            <FlexBox id="_IDGenVerticalLayout5" width="100%" class="sapUiTinyMarginTop sapUiTinyMarginEnd sapUiTinyMarginBottom" direction="Column">
+                                <Label id="_IDGenLabel12" text="{i18n>header.PSTLZ_WE}" />
+                                <Input id="postalCodeText" liveChange=".shipPostalCodeUpdate" valueLiveUpdate="true"/>
+                            </FlexBox>
+                            <FlexBox id="_IDGenVerticalLayout6" width="100%" class="sapUiTinyMarginTop sapUiTinyMarginBegin sapUiTinyMarginEnd" direction="Column">
+                                <Label id="_IDGenLabel13" text="{i18n>header.ORTO1_WE}" />
+                                <Input id="cityText" liveChange=".shipCityUpdate" valueLiveUpdate="true"/>
+                            </FlexBox>
+                        </FlexBox>
+                        <FlexBox id="ff" alignContent="Stretch" alignItems="Stretch" justifyContent="SpaceBetween">
+                            <FlexBox id="fff" width="100%" class="sapUiTinyMarginTop sapUiTinyMarginEnd sapUiTinyMarginBottom" direction="Column">
+                                <Label id="ffff" text="{i18n>header.REGIO_WE}" />
+                                <ComboBox items="{path:'/Regions', length : '1000000'}" width="100%" id="province" showSecondaryValues="true" change="destionationRegionAfterSelect">
+                                    <items>
+                                        <core:ListItem enabled="true" key="{ID}" text="{name}" additionalText="{ID}" textDirection="Inherit" />
+                                    </items>
+                                </ComboBox>
+                            </FlexBox>
+                            <FlexBox id="btrbtr" width="100%" class="sapUiTinyMarginTop sapUiTinyMarginEnd sapUiTinyMarginBegin" direction="Column">
+                                <Label id="gbgb" text="{i18n>header.LAND1_WE}" />
+                                <ComboBox items="{path:'/Countries', length : '100000'}" width="100%" id="country" selectionChange="selectCountryOne" showSecondaryValues="true" change="destionationCountryAfterSelect">
+                                    <items>
+                                        <core:ListItem enabled="true" key="{ID}" text="{name}" textDirection="Inherit" additionalText="{ID}" />
+                                    </items>
+                                </ComboBox>
+                            </FlexBox>
+                        </FlexBox>
+                    </items>
+                </VBox>
+                <VBox width="100%">
+                    <items>
+                        <ObjectIdentifier title="{i18n>header.shipment}" class="sapUiTinyMarginTop sapUiTinyMarginBegin" />
+                    </items>
+                    <FlexBox id="_IDGenHorizontalLaeyout2" justifyContent="SpaceBetween">
+                        <FlexBox id="_IDGenVerticalLeayout2" class="sapUiTinyMargin" direction="Column" width="50%">
+                            <Label id="_IDGenLabel" text="{i18n>header.carrier}" />
+                            <Input id="selectSheet12" showValueHelp="true" valueHelpOnly="true" valueHelpRequest=".onCarrierOpen" class="sapUiSmallMarginBottom" />
+                        </FlexBox>
+                        <FlexBox id="_IDGenFlexeBox1" class="sapUiTinyMarginTop sapUiTinyMarginBegin sapUiTinyMarginBottom" direction="Column" alignContent="Stretch" alignItems="Stretch" width="50%">
+                            <Label id="_IDGenLaebel10" text="{i18n>header.names}" />
+                            <Input id="pname" width="100%" liveChange=".carrierReciepentNameAfterSelect" valueLiveUpdate="true"/>
+                        </FlexBox>
+                    </FlexBox>
+                    <FlexBox class="sapUiTinyMarginBottom sapUiMediumMarginEnd sapUiTinyMarginBegin" width="100%">
+                        <FlexBox id="_IDGenVerticfalLayout4" class=" sapUiTinyMarginBotttom" width="100%" direction="Column">
+                            <Label id="_IDGenLabefl11" text="{i18n>header.sTRAHSP}" />
+                            <Input id="address2" width="99%" valueLiveUpdate="true" liveChange=".carrierAdressAfterchange" />
+                        </FlexBox>
+                    </FlexBox>
+
+                    <FlexBox id="_IDGenHvorizontalLaeyout2" justifyContent="SpaceBetween" class="sapUiTinyMarginTop">
+                        <FlexBox id="_IDGenVbberticalLeayout2" class="sapUiTinyMargin" direction="Column" width="50%">
+                            <Label id="_IDGenLvabel12" text="{i18n>header.PSTLZ_SP}" />
+                            <Input id="postalCodeText2" valueLiveUpdate="true" liveChange=".carrierPostalCodeUpdate"/>
+                        </FlexBox>
+                        <FlexBox id="_IDGenFblexeBox1" class="sapUiTinyMarginTop sapUiTinyMarginBegin sapUiTinyMarginBottom" direction="Column" alignContent="Stretch" alignItems="Stretch" width="50%">
+                            <Label id="_IDGenLabel132" text="{i18n>header.ORTO1_SP}" />
+                            <Input id="cityText2" liveChange=".carrierCityUpdate" valueLiveUpdate="true" />
+                        </FlexBox>
+                    </FlexBox>
+                    <FlexBox id="ffVD" alignContent="Stretch" alignItems="Stretch" justifyContent="SpaceBetween" class="sapUiTinyMarginTop">
+                        <FlexBox id="fffVD" width="100%" class="sapUiTinyMargin" direction="Column">
+                            <Label id="VDffff" text="{i18n>header.REGIO_SP}" />
+                            <ComboBox items="{path:'/Regions', length : '1000000'}" width="100%" id="regionid2" showSecondaryValues="true" change="shipmentRegionAfterSelect">
+                                <items>
+                                    <core:ListItem enabled="true" key="{ID}" text="{name}" additionalText="{ID}" textDirection="Inherit" />
+                                </items>
+                            </ComboBox>
+                        </FlexBox>
+                        <FlexBox id="btrbDVtr" width="100%" class="sapUiTinyMarginTop sapUiTinyMarginBegin" direction="Column">
+                            <Label id="gVDbgb" text="{i18n>header.LAND1_SP}" />
+                            <ComboBox items="{path:'/Countries', length : '1000000'}" width="100%" id="country2" selectionChange="selectCountryTwo" showSecondaryValues="true" change="shipmentCountryAfterSelect">
+                                <items>
+                                    <core:ListItem enabled="true" key="{ID}" text="{name}" textDirection="Inherit" additionalText="{ID}" />
+                                </items>
+                            </ComboBox>
+                        </FlexBox>
+                    </FlexBox>
+                </VBox>
+            </HBox>
+
+            <VBox width="100%" />
+        </items>
+    </VBox>
+</mvc:View>

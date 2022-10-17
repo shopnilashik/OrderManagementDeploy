@@ -1,0 +1,74 @@
+<mvc:View controllerName="derga.ordermanagement.controller.Pricing"
+  xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table"
+  xmlns="sap.m" xmlns:m="sap.m" >
+       <FlexBox id="PricingMainFlexBox" width="100%">
+            <t:Table
+                rows="{oOrderData>/Pricing}"
+                visibleRowCount="3"
+                selectionMode="None">
+                <t:extension>
+                    <m:OverflowToolbar style="Clear">
+                        <m:Title id="Pricingtitle" text="{i18n>item.page.pricingSectionTitle}"/>
+                        <m:ToolbarSpacer/>
+                        <Button id="button_fullscreen" class="sapUiSmallMarginBottom" icon="sap-icon://full-screen" type="Transparent"/>
+                    </m:OverflowToolbar>
+                 </t:extension>
+                <t:columns>
+                    <t:Column >
+                        <Label text="{i18n>item.page.condition}"/>
+                        <t:template>
+                            <Text text="{oOrderData>condition}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column >
+                        <Label text="{i18n>item.page.condDescription}"/>
+                        <t:template>
+                            <Text text="{oOrderData>conddescription}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column hAlign="End">
+                        <Label text="{i18n>item.page.value}"/>
+                        <t:template>
+                            <Text text="{oOrderData>value}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column >
+                        <Label text="{i18n>item.page.currency}"/>
+                        <t:template>
+                            <Text text="{oOrderData>currency}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column hAlign="End">
+                        <Label text="{i18n>item.page.price}"/>
+                        <t:template>
+                            <Text text="{oOrderData>price}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column >
+                        <Label text="{i18n>item.page.udm}"/>
+                        <t:template>
+                            <Text text="{oOrderData>udm}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column hAlign="End">
+                        <Label text="{i18n>item.page.value}"/>
+                        <t:template>
+                            <Text text="{oOrderData>conditionvalue}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column >
+                        <Label text="{i18n>item.page.currency}"/>
+                        <t:template>
+                            <Text text="{oOrderData>item.page.conditionValue}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column hAlign="End">
+                        <Label text="" />
+                        <t:template >
+                            <Button id="delete_button_items" class="sapUiTinyMarginEnd" icon="sap-icon://delete" type="Transparent"/>
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+        </FlexBox>
+</mvc:View>

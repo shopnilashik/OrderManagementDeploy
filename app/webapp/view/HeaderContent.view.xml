@@ -1,0 +1,114 @@
+<mvc:View
+	controllerName=""
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m"
+	
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+<m:HBox>
+				<m:items>
+					<m:VBox class="sapUiMediumMarginEnd">
+						<m:items>
+							<m:Text text="{i18n>atpStatus}" />
+							<m:HBox alignItems="Center"  >
+								<m:items>
+									<m:Image
+										src="{
+											value: 'derga/ordermanagement/images/tick.svg',
+											formatter: 'sap.ui.require.toUrl'
+										}"
+										
+                                        width="3rem"
+                                        class="sapUiTinyMarginEnd sapUiTinyMarginTop"
+                                        
+									/>
+                                    <m:ObjectStatus
+                                            active="false"
+                                            class="sapMObjectStatusLarge "
+                                            state="Success"
+                                            text="OK"
+                                            fieldGroupIds=""
+                                            visible="true"
+                                            
+                                        >
+                                            
+                                        </m:ObjectStatus>
+                                   
+                                   
+                                    
+								</m:items>
+
+							</m:HBox>
+						</m:items>
+					</m:VBox>
+                    <m:VBox class="sapUiMediumMarginEnd">
+						<m:items>
+							<m:Text text="{i18n>simulationStatus}" />
+							<m:HBox alignItems="Center"  >
+								<m:items>
+									<m:Image
+										src="{
+											value: 'derga/ordermanagement/images/vector.svg',
+											formatter: 'sap.ui.require.toUrl'
+										}"
+										
+                                        width="3rem"
+                                        class="sapUiTinyMarginEnd sapUiTinyMarginTop"
+                                        
+									/>
+                                    <m:ObjectStatus
+                                            active="false"
+                                            class="sapMObjectStatusLarge "
+                                            state="Error"
+                                            text="KO"
+                                            fieldGroupIds=""
+                                            visible="true"
+                                            
+                                        >
+                                            
+                                        </m:ObjectStatus>
+                                   
+                                   
+                                    
+								</m:items>
+
+							</m:HBox>
+						</m:items>
+					</m:VBox>
+                    <m:VBox>
+						<m:items>
+							<m:Text text="{i18n>totalOrdine}" />
+							<m:HBox alignItems="Center"  >
+								<m:items>
+									<m:Image
+										src="{
+											value: 'derga/ordermanagement/images/cart.svg',
+											formatter: 'sap.ui.require.toUrl'
+										}"
+                                        width="3rem"
+                                        class="sapUiTinyMarginEnd sapUiTinyMarginTop"
+									/>
+                                    <m:ObjectStatus
+                                            active="false"
+                                            class="sapMObjectStatusLarge "
+                                            state="Information"
+                                            text="379.99 EUR"
+                                            fieldGroupIds=""
+                                            visible="true"
+                                            
+                                        >
+                                            
+                                        </m:ObjectStatus>
+                                   
+                                   
+                                    
+								</m:items>
+
+							</m:HBox>
+						</m:items>
+					</m:VBox>
+				</m:items>
+			</m:HBox>
+</mvc:View>

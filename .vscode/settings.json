@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "172.29.108.135",
+            "port": 3306,
+            "driver": "PostgreSQL",
+            "name": "Derga_Order_Management_DB",
+            "database": "nbALmArWugph",
+            "password": "dc42865b43c6",
+            "username": "065dc31224a3"
+        }
+    ]
+}

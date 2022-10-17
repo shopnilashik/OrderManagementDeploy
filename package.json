@@ -1,0 +1,91 @@
+{
+  "name": "order-management",
+  "version": "1.0.0",
+  "description": "DERGA order management application",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^2.7.1",
+    "@sap/cds": ">=5",
+    "@sap/jobs-client": "^1.7.30",
+    "@sap/xsenv": "^3.3.2",
+    "cds-dbm": "^0.0.36",
+    "cds-pg": "^0.1.30",
+    "express": "^4",
+    "@sap/xssec": "^3",
+    "passport": "^0",
+    "hdb": "^0.19.0"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.0.11"
+  },
+  "scripts": {
+    "start": "npx cds run"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  },
+  "cds": {
+    "requires": {
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        },
+        "db": {
+          "kind": "hana-cloud"
+        },
+        "approuter": {
+          "kind": "cloudfoundry"
+        }
+      },
+      "db": {
+        "kind": "sql"
+      }
+    },
+    "[production]": {
+      "auth": {
+        "kind": "xsuaa"
+      },
+      "db": {
+        "kind": "hana-cloud"
+      },
+      "approuter": {
+        "kind": "cloudfoundry"
+      }
+    }
+  },
+  "requires": {
+    "db": {
+      "kind": "sql",
+      "credentials": {
+        "database": "db/derga-order-management.db"
+      }
+    },
+    "sapux": [
+      "app/"
+    ]
+  }
+}

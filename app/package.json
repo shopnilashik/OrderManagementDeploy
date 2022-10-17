@@ -1,0 +1,20 @@
+{
+  "name": "OrderManagement",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "ui5 build",
+    "serve": "ui5 serve -o index.html",
+    "start": "node node_modules/@sap/approuter/approuter.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sap/approuter": "^11.3.2"
+  },
+  "engines": {
+    "node": "^16"
+  }
+}

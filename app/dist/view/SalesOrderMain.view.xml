@@ -1,0 +1,50 @@
+<mvc:View
+	controllerName="derga.ordermanagement.controller.SalesOrderMain"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.uxap">
+	<ObjectPageLayout
+		id="SalesOrderObjectPageLayout" 
+		upperCaseAnchorBar="false" 
+		class="sapUiNoMarginTop"
+		showHeaderContent="false">
+		<sections>
+			<ObjectPageSection
+				id="PositionObjectPageSection" 
+				titleUppercase="false"
+				title="{i18n>item.page.position}">
+				<ObjectPageSubSection id="positionObjectPageSubSection" >
+					<blocks>
+						<mvc:XMLView
+							id="PositionXMLView"
+							viewName="derga.ordermanagement.view.Position"/>
+					</blocks>
+				</ObjectPageSubSection>
+			</ObjectPageSection>
+			<ObjectPageSection
+				id="PricingObjectPageSection" 
+				titleUppercase="false"
+				title="{i18n>item.page.pricingSectionTitle}">
+				<ObjectPageSubSection id="PricingObjectPageSubSection" >
+					<blocks>
+						<mvc:XMLView
+							id="PricingXMLView"
+							viewName="derga.ordermanagement.view.Pricing"/>
+					</blocks>
+				</ObjectPageSubSection>
+			</ObjectPageSection>
+			<ObjectPageSection
+				id="PartnerObjectPageSection3" 
+				titleUppercase="false"
+				title="{i18n>item.page.pertnerSectionTitle}">
+				<ObjectPageSubSection id="PartnerObjectPageSubSection" >
+					<blocks>
+						<mvc:XMLView
+							id="PartnerXMLView"
+							viewName="derga.ordermanagement.view.Partner"/>
+					</blocks>
+				</ObjectPageSubSection>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>
