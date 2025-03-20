@@ -1,1 +1,0 @@
-using BaseService as service from '../../srv/base-service';
