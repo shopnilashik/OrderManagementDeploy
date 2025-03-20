@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="BaseService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="BusinessPartners" EntityType="BaseService.BusinessPartners">
+                    <NavigationPropertyBinding Path="country" Target="Countries"/>
+                    <NavigationPropertyBinding Path="region" Target="Regions"/>
+                </EntitySet>
+                <EntitySet Name="Countries" EntityType="BaseService.Countries">
+                    <NavigationPropertyBinding Path="regions" Target="Regions"/>
+                    <NavigationPropertyBinding Path="texts" Target="Countries_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="Countries_texts"/>
+                </EntitySet>
+                <EntitySet Name="CustomerPaymentTerms" EntityType="BaseService.CustomerPaymentTerms">
+                    <NavigationPropertyBinding Path="texts" Target="CustomerPaymentTerms_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="CustomerPaymentTerms_texts"/>
+                </EntitySet>
+                <EntitySet Name="CustomerSalesAreas" EntityType="BaseService.CustomerSalesAreas">
+                    <NavigationPropertyBinding Path="businessPartner" Target="BusinessPartners"/>
+                    <NavigationPropertyBinding Path="salesOrganization" Target="SalesOrganizations"/>
+                    <NavigationPropertyBinding Path="distributionChannel" Target="DistributionChannels"/>
+                    <NavigationPropertyBinding Path="division" Target="Divisions"/>
+                    <NavigationPropertyBinding Path="salesGroup" Target="SalesGroups"/>
+                    <NavigationPropertyBinding Path="salesOffice" Target="SalesOffices"/>
+                    <NavigationPropertyBinding Path="salesDistrict" Target="SalesDistricts"/>
+                    <NavigationPropertyBinding Path="customerPaymentTerm" Target="CustomerPaymentTerms"/>
+                </EntitySet>
+                <EntitySet Name="DistributionChannels" EntityType="BaseService.DistributionChannels">
+                    <NavigationPropertyBinding Path="texts" Target="DistributionChannels_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="DistributionChannels_texts"/>
+                </EntitySet>
+                <EntitySet Name="Divisions" EntityType="BaseService.Divisions">
+                    <NavigationPropertyBinding Path="texts" Target="Divisions_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="Divisions_texts"/>
+                </EntitySet>
+                <EntitySet Name="OrderTypes" EntityType="BaseService.OrderTypes">
+                    <NavigationPropertyBinding Path="texts" Target="OrderTypes_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="OrderTypes_texts"/>
+                </EntitySet>
+                <EntitySet Name="PartnerFunctions" EntityType="BaseService.PartnerFunctions">
+                    <NavigationPropertyBinding Path="texts" Target="PartnerFunctions_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="PartnerFunctions_texts"/>
+                </EntitySet>
+                <EntitySet Name="Regions" EntityType="BaseService.Regions">
+                    <NavigationPropertyBinding Path="country" Target="Countries"/>
+                    <NavigationPropertyBinding Path="texts" Target="Regions_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="Regions_texts"/>
+                </EntitySet>
+                <EntitySet Name="SalesDistricts" EntityType="BaseService.SalesDistricts">
+                    <NavigationPropertyBinding Path="texts" Target="SalesDistricts_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="SalesDistricts_texts"/>
+                </EntitySet>
+                <EntitySet Name="SalesGroups" EntityType="BaseService.SalesGroups">
+                    <NavigationPropertyBinding Path="texts" Target="SalesGroups_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="SalesGroups_texts"/>
+                </EntitySet>
+                <EntitySet Name="SalesOffices" EntityType="BaseService.SalesOffices">
+                    <NavigationPropertyBinding Path="texts" Target="SalesOffices_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="SalesOffices_texts"/>
+                </EntitySet>
+                <EntitySet Name="SalesOrganizations" EntityType="BaseService.SalesOrganizations">
+                    <NavigationPropertyBinding Path="texts" Target="SalesOrganizations_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="SalesOrganizations_texts"/>
+                </EntitySet>
+                <EntitySet Name="CustSalesPartnerFuncs" EntityType="BaseService.CustSalesPartnerFuncs">
+                    <NavigationPropertyBinding Path="customerSalesArea" Target="CustomerSalesAreas"/>
+                    <NavigationPropertyBinding Path="partnerFunction" Target="PartnerFunctions"/>
+                    <NavigationPropertyBinding Path="BPPartner" Target="BusinessPartners"/>
+                </EntitySet>
+                <EntitySet Name="NoteTypes" EntityType="BaseService.NoteTypes">
+                    <NavigationPropertyBinding Path="texts" Target="NoteTypes_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="NoteTypes_texts"/>
+                </EntitySet>
+                <EntitySet Name="Products" EntityType="BaseService.Products">
+                    <NavigationPropertyBinding Path="productType" Target="ProductTypes"/>
+                    <NavigationPropertyBinding Path="productHierarchy" Target="ProductHierarchies"/>
+                    <NavigationPropertyBinding Path="salesUnitOfMeasure" Target="UnitsOfMeasure"/>
+                    <NavigationPropertyBinding Path="texts" Target="Products_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="Products_texts"/>
+                </EntitySet>
+                <EntitySet Name="ProductTypes" EntityType="BaseService.ProductTypes">
+                    <NavigationPropertyBinding Path="texts" Target="ProductTypes_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="ProductTypes_texts"/>
+                </EntitySet>
+                <EntitySet Name="ProductHierarchies" EntityType="BaseService.ProductHierarchies">
+                    <NavigationPropertyBinding Path="texts" Target="ProductHierarchies_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="ProductHierarchies_texts"/>
+                </EntitySet>
+                <EntitySet Name="UnitsOfMeasure" EntityType="BaseService.UnitsOfMeasure">
+                    <NavigationPropertyBinding Path="texts" Target="UnitsOfMeasure_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="UnitsOfMeasure_texts"/>
+                </EntitySet>
+                <EntitySet Name="CustomersView" EntityType="BaseService.CustomersView">
+                    <NavigationPropertyBinding Path="businessPartner" Target="BusinessPartners"/>
+                    <NavigationPropertyBinding Path="salesOrganization" Target="SalesOrganizations"/>
+                    <NavigationPropertyBinding Path="distributionChannel" Target="DistributionChannels"/>
+                    <NavigationPropertyBinding Path="division" Target="Divisions"/>
+                    <NavigationPropertyBinding Path="salesGroup" Target="SalesGroups"/>
+                    <NavigationPropertyBinding Path="salesOffice" Target="SalesOffices"/>
+                    <NavigationPropertyBinding Path="salesDistrict" Target="SalesDistricts"/>
+                    <NavigationPropertyBinding Path="customerPaymentTerm" Target="CustomerPaymentTerms"/>
+                </EntitySet>
+                <EntitySet Name="CustomerSalesPartenFunctionsView" EntityType="BaseService.CustomerSalesPartenFunctionsView">
+                    <NavigationPropertyBinding Path="partnerFunction" Target="PartnerFunctions"/>
+                    <NavigationPropertyBinding Path="BPPartner" Target="BusinessPartners"/>
+                    <NavigationPropertyBinding Path="region" Target="Regions"/>
+                    <NavigationPropertyBinding Path="country" Target="Countries"/>
+                </EntitySet>
+                <EntitySet Name="ProductsView" EntityType="BaseService.ProductsView">
+                    <NavigationPropertyBinding Path="productType" Target="ProductTypes"/>
+                    <NavigationPropertyBinding Path="productHierarchy" Target="ProductHierarchies"/>
+                </EntitySet>
+                <EntitySet Name="Countries_texts" EntityType="BaseService.Countries_texts"/>
+                <EntitySet Name="CustomerPaymentTerms_texts" EntityType="BaseService.CustomerPaymentTerms_texts"/>
+                <EntitySet Name="DistributionChannels_texts" EntityType="BaseService.DistributionChannels_texts"/>
+                <EntitySet Name="Divisions_texts" EntityType="BaseService.Divisions_texts"/>
+                <EntitySet Name="OrderTypes_texts" EntityType="BaseService.OrderTypes_texts"/>
+                <EntitySet Name="PartnerFunctions_texts" EntityType="BaseService.PartnerFunctions_texts"/>
+                <EntitySet Name="Regions_texts" EntityType="BaseService.Regions_texts"/>
+                <EntitySet Name="SalesDistricts_texts" EntityType="BaseService.SalesDistricts_texts"/>
+                <EntitySet Name="SalesGroups_texts" EntityType="BaseService.SalesGroups_texts"/>
+                <EntitySet Name="SalesOffices_texts" EntityType="BaseService.SalesOffices_texts"/>
+                <EntitySet Name="SalesOrganizations_texts" EntityType="BaseService.SalesOrganizations_texts"/>
+                <EntitySet Name="NoteTypes_texts" EntityType="BaseService.NoteTypes_texts"/>
+                <EntitySet Name="Products_texts" EntityType="BaseService.Products_texts"/>
+                <EntitySet Name="ProductTypes_texts" EntityType="BaseService.ProductTypes_texts"/>
+                <EntitySet Name="ProductHierarchies_texts" EntityType="BaseService.ProductHierarchies_texts"/>
+                <EntitySet Name="UnitsOfMeasure_texts" EntityType="BaseService.UnitsOfMeasure_texts"/>
+            </EntityContainer>
+            <EntityType Name="BusinessPartners">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false"/>
+                <Property Name="streetName" Type="Edm.String"/>
+                <Property Name="cityName" Type="Edm.String"/>
+                <Property Name="postalCode" Type="Edm.String"/>
+                <Property Name="vatRegistration" Type="Edm.String"/>
+                <NavigationProperty Name="country" Type="BaseService.Countries">
+                    <ReferentialConstraint Property="country_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="country_ID" Type="Edm.String"/>
+                <NavigationProperty Name="region" Type="BaseService.Regions">
+                    <ReferentialConstraint Property="region_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="region_ID" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Countries">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="regions" Type="Collection(BaseService.Regions)" Partner="country"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.Countries_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.Countries_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="CustomerPaymentTerms">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.CustomerPaymentTerms_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.CustomerPaymentTerms_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="CustomerSalesAreas">
+                <Key>
+                    <PropertyRef Name="businessPartner_ID"/>
+                    <PropertyRef Name="salesOrganization_ID"/>
+                    <PropertyRef Name="distributionChannel_ID"/>
+                    <PropertyRef Name="division_ID"/>
+                </Key>
+                <NavigationProperty Name="businessPartner" Type="BaseService.BusinessPartners">
+                    <ReferentialConstraint Property="businessPartner_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="businessPartner_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="salesOrganization" Type="BaseService.SalesOrganizations">
+                    <ReferentialConstraint Property="salesOrganization_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesOrganization_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="distributionChannel" Type="BaseService.DistributionChannels">
+                    <ReferentialConstraint Property="distributionChannel_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="distributionChannel_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="division" Type="BaseService.Divisions">
+                    <ReferentialConstraint Property="division_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="division_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="salesGroup" Type="BaseService.SalesGroups">
+                    <ReferentialConstraint Property="salesGroup_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesGroup_ID" Type="Edm.String"/>
+                <NavigationProperty Name="salesOffice" Type="BaseService.SalesOffices">
+                    <ReferentialConstraint Property="salesOffice_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesOffice_ID" Type="Edm.String"/>
+                <NavigationProperty Name="salesDistrict" Type="BaseService.SalesDistricts">
+                    <ReferentialConstraint Property="salesDistrict_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesDistrict_ID" Type="Edm.String"/>
+                <NavigationProperty Name="customerPaymentTerm" Type="BaseService.CustomerPaymentTerms">
+                    <ReferentialConstraint Property="customerPaymentTerm_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="customerPaymentTerm_ID" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="DistributionChannels">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.DistributionChannels_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.DistributionChannels_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Divisions">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.Divisions_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.Divisions_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="OrderTypes">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.OrderTypes_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.OrderTypes_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="PartnerFunctions">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.PartnerFunctions_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.PartnerFunctions_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Regions">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="country" Type="BaseService.Countries" Partner="regions">
+                    <ReferentialConstraint Property="country_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="country_ID" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.Regions_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.Regions_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="SalesDistricts">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.SalesDistricts_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.SalesDistricts_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="SalesGroups">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.SalesGroups_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.SalesGroups_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="SalesOffices">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.SalesOffices_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.SalesOffices_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="SalesOrganizations">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.SalesOrganizations_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.SalesOrganizations_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="CustSalesPartnerFuncs">
+                <Key>
+                    <PropertyRef Name="customerSalesArea_businessPartner_ID"/>
+                    <PropertyRef Name="customerSalesArea_salesOrganization_ID"/>
+                    <PropertyRef Name="customerSalesArea_distributionChannel_ID"/>
+                    <PropertyRef Name="customerSalesArea_division_ID"/>
+                    <PropertyRef Name="partnerCounter"/>
+                    <PropertyRef Name="partnerFunction_ID"/>
+                </Key>
+                <NavigationProperty Name="customerSalesArea" Type="BaseService.CustomerSalesAreas">
+                    <ReferentialConstraint Property="customerSalesArea_businessPartner_ID" ReferencedProperty="businessPartner_ID"/>
+                    <ReferentialConstraint Property="customerSalesArea_salesOrganization_ID" ReferencedProperty="salesOrganization_ID"/>
+                    <ReferentialConstraint Property="customerSalesArea_distributionChannel_ID" ReferencedProperty="distributionChannel_ID"/>
+                    <ReferentialConstraint Property="customerSalesArea_division_ID" ReferencedProperty="division_ID"/>
+                </NavigationProperty>
+                <Property Name="customerSalesArea_businessPartner_ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="customerSalesArea_salesOrganization_ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="customerSalesArea_distributionChannel_ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="customerSalesArea_division_ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="partnerCounter" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="partnerFunction" Type="BaseService.PartnerFunctions">
+                    <ReferentialConstraint Property="partnerFunction_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="partnerFunction_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="BPPartner" Type="BaseService.BusinessPartners">
+                    <ReferentialConstraint Property="BPPartner_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="BPPartner_ID" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="NoteTypes">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.NoteTypes_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.NoteTypes_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Products">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="productType" Type="BaseService.ProductTypes">
+                    <ReferentialConstraint Property="productType_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="productType_ID" Type="Edm.String"/>
+                <NavigationProperty Name="productHierarchy" Type="BaseService.ProductHierarchies">
+                    <ReferentialConstraint Property="productHierarchy_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="productHierarchy_ID" Type="Edm.String"/>
+                <NavigationProperty Name="salesUnitOfMeasure" Type="BaseService.UnitsOfMeasure">
+                    <ReferentialConstraint Property="salesUnitOfMeasure_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesUnitOfMeasure_ID" Type="Edm.String"/>
+                <Property Name="attribute1" Type="Edm.String"/>
+                <Property Name="attribute2" Type="Edm.String"/>
+                <Property Name="attribute3" Type="Edm.String"/>
+                <Property Name="attribute4" Type="Edm.String"/>
+                <Property Name="attribute5" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.Products_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.Products_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="ProductTypes">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.ProductTypes_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.ProductTypes_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="ProductHierarchies">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name1" Type="Edm.String"/>
+                <Property Name="name2" Type="Edm.String"/>
+                <Property Name="name3" Type="Edm.String"/>
+                <Property Name="name4" Type="Edm.String"/>
+                <Property Name="name5" Type="Edm.String"/>
+                <Property Name="name6" Type="Edm.String"/>
+                <Property Name="name7" Type="Edm.String"/>
+                <Property Name="name8" Type="Edm.String"/>
+                <Property Name="name9" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.ProductHierarchies_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.ProductHierarchies_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="UnitsOfMeasure">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="texts" Type="Collection(BaseService.UnitsOfMeasure_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="BaseService.UnitsOfMeasure_texts">
+                    <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="CustomersView">
+                <Key>
+                    <PropertyRef Name="businessPartner_ID"/>
+                    <PropertyRef Name="salesOrganization_ID"/>
+                    <PropertyRef Name="distributionChannel_ID"/>
+                    <PropertyRef Name="division_ID"/>
+                </Key>
+                <NavigationProperty Name="businessPartner" Type="BaseService.BusinessPartners">
+                    <ReferentialConstraint Property="businessPartner_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="businessPartner_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="salesOrganization" Type="BaseService.SalesOrganizations">
+                    <ReferentialConstraint Property="salesOrganization_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesOrganization_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="distributionChannel" Type="BaseService.DistributionChannels">
+                    <ReferentialConstraint Property="distributionChannel_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="distributionChannel_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="division" Type="BaseService.Divisions">
+                    <ReferentialConstraint Property="division_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="division_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="salesGroup" Type="BaseService.SalesGroups">
+                    <ReferentialConstraint Property="salesGroup_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesGroup_ID" Type="Edm.String"/>
+                <NavigationProperty Name="salesOffice" Type="BaseService.SalesOffices">
+                    <ReferentialConstraint Property="salesOffice_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesOffice_ID" Type="Edm.String"/>
+                <NavigationProperty Name="salesDistrict" Type="BaseService.SalesDistricts">
+                    <ReferentialConstraint Property="salesDistrict_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="salesDistrict_ID" Type="Edm.String"/>
+                <NavigationProperty Name="customerPaymentTerm" Type="BaseService.CustomerPaymentTerms">
+                    <ReferentialConstraint Property="customerPaymentTerm_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="customerPaymentTerm_ID" Type="Edm.String"/>
+                <Property Name="name" Type="Edm.String" Nullable="false"/>
+                <Property Name="cityName" Type="Edm.String"/>
+                <Property Name="vatRegistration" Type="Edm.String"/>
+                <Property Name="regionName" Type="Edm.String"/>
+                <Property Name="countryName" Type="Edm.String"/>
+                <Property Name="salesOrganizationName" Type="Edm.String"/>
+                <Property Name="distributionChannelName" Type="Edm.String"/>
+                <Property Name="divisionName" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="CustomerSalesPartenFunctionsView">
+                <Key>
+                    <PropertyRef Name="businessPartner_ID"/>
+                    <PropertyRef Name="salesOrganization_ID"/>
+                    <PropertyRef Name="distributionChannel_ID"/>
+                    <PropertyRef Name="division_ID"/>
+                    <PropertyRef Name="partnerFunction_ID"/>
+                </Key>
+                <Property Name="businessPartner_ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="salesOrganization_ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="distributionChannel_ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="division_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="partnerFunction" Type="BaseService.PartnerFunctions">
+                    <ReferentialConstraint Property="partnerFunction_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="partnerFunction_ID" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="BPPartner" Type="BaseService.BusinessPartners">
+                    <ReferentialConstraint Property="BPPartner_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="BPPartner_ID" Type="Edm.String"/>
+                <Property Name="partnerFunctionName" Type="Edm.String"/>
+                <Property Name="businessPartnerName" Type="Edm.String" Nullable="false"/>
+                <Property Name="businessPartnerStreetName" Type="Edm.String"/>
+                <Property Name="businessPartnerCityName" Type="Edm.String"/>
+                <Property Name="businessPartnerPostalCode" Type="Edm.String"/>
+                <NavigationProperty Name="region" Type="BaseService.Regions">
+                    <ReferentialConstraint Property="region_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="region_ID" Type="Edm.String"/>
+                <NavigationProperty Name="country" Type="BaseService.Countries">
+                    <ReferentialConstraint Property="country_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="country_ID" Type="Edm.String"/>
+                <Property Name="regionName" Type="Edm.String"/>
+                <Property Name="countryName" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ProductsView">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="productName" Type="Edm.String"/>
+                <Property Name="attribute1" Type="Edm.String"/>
+                <Property Name="attribute2" Type="Edm.String"/>
+                <Property Name="attribute3" Type="Edm.String"/>
+                <Property Name="attribute4" Type="Edm.String"/>
+                <Property Name="attribute5" Type="Edm.String"/>
+                <NavigationProperty Name="productType" Type="BaseService.ProductTypes">
+                    <ReferentialConstraint Property="productType_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="productType_ID" Type="Edm.String"/>
+                <Property Name="productTypeName" Type="Edm.String"/>
+                <NavigationProperty Name="productHierarchy" Type="BaseService.ProductHierarchies">
+                    <ReferentialConstraint Property="productHierarchy_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="productHierarchy_ID" Type="Edm.String"/>
+                <Property Name="productHierarchyName1" Type="Edm.String"/>
+                <Property Name="productHierarchyName2" Type="Edm.String"/>
+                <Property Name="productHierarchyName3" Type="Edm.String"/>
+                <Property Name="productHierarchyName4" Type="Edm.String"/>
+                <Property Name="productHierarchyName5" Type="Edm.String"/>
+                <Property Name="productHierarchyName6" Type="Edm.String"/>
+                <Property Name="productHierarchyName7" Type="Edm.String"/>
+                <Property Name="productHierarchyName8" Type="Edm.String"/>
+                <Property Name="productHierarchyName9" Type="Edm.String"/>
+                <Property Name="unitofmasure_ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="unitsOfMeasureName" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Countries_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="CustomerPaymentTerms_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="DistributionChannels_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Divisions_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="OrderTypes_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="PartnerFunctions_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Regions_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="SalesDistricts_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="SalesGroups_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="SalesOffices_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="SalesOrganizations_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="NoteTypes_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="Products_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ProductTypes_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="ProductHierarchies_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name1" Type="Edm.String"/>
+                <Property Name="name2" Type="Edm.String"/>
+                <Property Name="name3" Type="Edm.String"/>
+                <Property Name="name4" Type="Edm.String"/>
+                <Property Name="name5" Type="Edm.String"/>
+                <Property Name="name6" Type="Edm.String"/>
+                <Property Name="name7" Type="Edm.String"/>
+                <Property Name="name8" Type="Edm.String"/>
+                <Property Name="name9" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="UnitsOfMeasure_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="BaseService.EntityContainer/BusinessPartners">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/Countries">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/CustomerPaymentTerms">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/CustomerSalesAreas">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/DistributionChannels">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/Divisions">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/OrderTypes">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/PartnerFunctions">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/Regions">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/SalesDistricts">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/SalesGroups">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/SalesOffices">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/SalesOrganizations">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/CustSalesPartnerFuncs">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/NoteTypes">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/Products">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/ProductTypes">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/ProductHierarchies">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/UnitsOfMeasure">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/CustomersView">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/CustomerSalesPartenFunctionsView">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="BaseService.EntityContainer/ProductsView">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
