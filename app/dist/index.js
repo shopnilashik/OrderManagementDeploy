@@ -1,1 +1,0 @@
-sap.ui.define(["sap/ui/core/ComponentContainer"],function(e){"use strict";new e({name:"derga.ordermanagement.",settings:{id:"derga.ordermanagement"},async:true}).placeAt("content")});

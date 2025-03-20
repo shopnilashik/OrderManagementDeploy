@@ -1,1 +1,0 @@
-sap.ui.define(["./BaseController"],function(t){"use strict";return t.extend("derga.ordermanagement.controller.SalesOrderMain",{onInit:function(){this.getOwnerComponent().getRouter().getRoute("SalesOrderMain").attachPatternMatched(this._onPatternMatched,this)},_onPatternMatched:function(){}})});
